@@ -42,9 +42,22 @@
       "!.vercel",
       "!**/src/routeTree.gen.ts",
       "!**/src/styles/styles.css",
-      "!src/components/ui"
+      "!src/components/ui",
+      "!src/components/calendar"
     ]
   },
+  "overrides": [
+    {
+      "includes": ["src/routes/**/$*.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": "off"
+          }
+        }
+      }
+    }
+  ],
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,

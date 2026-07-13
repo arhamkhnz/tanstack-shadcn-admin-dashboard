@@ -2,11 +2,17 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import { createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 
+import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { APP_CONFIG } from "@/config/app-config";
+import { fontRegistry } from "@/lib/fonts/registry";
+import { PREFERENCE_DEFAULTS } from "@/lib/preferences/preferences-config";
+import { ThemeBootScript } from "@/scripts/theme-boot";
+import { PreferencesStoreProvider } from "@/stores/preferences/preferences-provider";
 
 import appCss from "../styles/styles.css?url";
-
-const THEME_INIT_SCRIPT = `(function(){try{var stored=window.localStorage.getItem('theme');var mode=(stored==='light'||stored==='dark'||stored==='auto')?stored:'auto';var prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches;var resolved=mode==='auto'?(prefersDark?'dark':'light'):mode;var root=document.documentElement;root.classList.remove('light','dark');root.classList.add(resolved);if(mode==='auto'){root.removeAttribute('data-theme')}else{root.setAttribute('data-theme',mode)}root.style.colorScheme=resolved;}catch(e){}})();`;
+import { NotFound } from "./-components/not-found";
+import { RootError } from "./-components/root-error";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -19,28 +25,70 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "TanStack Start Starter",
+        title: APP_CONFIG.meta.title,
+      },
+      {
+        name: "description",
+        content: APP_CONFIG.meta.description,
       },
     ],
     links: [
       {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
         rel: "stylesheet",
         href: appCss,
       },
+      {
+        rel: "stylesheet",
+        href: fontRegistry[PREFERENCE_DEFAULTS.font].stylesheet,
+      },
+      {
+        rel: "manifest",
+        href: "/manifest.json",
+      },
     ],
   }),
+  errorComponent: RootError,
+  notFoundComponent: NotFound,
   shellComponent: RootDocument,
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const { theme_mode, theme_preset, content_layout, navbar_style, sidebar_variant, sidebar_collapsible, font } =
+    PREFERENCE_DEFAULTS;
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme-mode={theme_mode}
+      data-theme-preset={theme_preset}
+      data-content-layout={content_layout}
+      data-navbar-style={navbar_style}
+      data-sidebar-variant={sidebar_variant}
+      data-sidebar-collapsible={sidebar_collapsible}
+      data-font={font}
+      suppressHydrationWarning
+    >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        {/* Applies theme and layout preferences on load to avoid flicker and unnecessary server rerenders. */}
+        <ThemeBootScript />
         <HeadContent />
       </head>
-      <body className="font-sans antialiased [overflow-wrap:anywhere]">
-        <TooltipProvider>{children}</TooltipProvider>
+      <body className="min-h-screen antialiased">
+        <TooltipProvider>
+          <PreferencesStoreProvider initialValues={PREFERENCE_DEFAULTS}>
+            {children}
+            <Toaster />
+          </PreferencesStoreProvider>
+        </TooltipProvider>
         <TanStackDevtools
           config={{
             position: "bottom-right",

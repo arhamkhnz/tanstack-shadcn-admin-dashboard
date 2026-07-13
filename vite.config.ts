@@ -8,7 +8,20 @@ import { defineConfig } from "vite";
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
-  plugins: [devtools(), tailwindcss(), tanstackStart(), viteReact(), nitro()],
+  plugins: [
+    devtools({
+      injectSource: {
+        enabled: true,
+        ignore: {
+          components: ["FullCalendar"],
+        },
+      },
+    }),
+    tailwindcss(),
+    tanstackStart(),
+    nitro(),
+    viteReact(),
+  ],
 });
 
 export default config;

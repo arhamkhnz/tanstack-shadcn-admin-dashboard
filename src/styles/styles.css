@@ -1,11 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/inter";
+
+/* Theme preset styles: these override CSS variables based on the selected data-theme-preset */
+@import "./presets/brutalist.css";
+@import "./presets/soft-pop.css";
+@import "./presets/tangerine.css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --app-font-sans: ui-sans-serif, system-ui, sans-serif;
+  --app-font-variation-settings: normal;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -41,8 +47,8 @@
 }
 
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: "Inter Variable", sans-serif;
+  --font-heading: var(--app-font-sans);
+  --font-sans: var(--app-font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -124,9 +130,48 @@
 
   body {
     @apply bg-background text-foreground;
+    font-variation-settings: var(--app-font-variation-settings);
   }
 
   html {
     @apply font-sans;
   }
+}
+
+@layer utilities {
+  [data-theme-preset]:not([data-theme-preset="default"]) .shadow-2xs {
+    box-shadow: var(--shadow-2xs);
+  }
+
+  [data-theme-preset]:not([data-theme-preset="default"]) .shadow-xs {
+    box-shadow: var(--shadow-xs);
+  }
+
+  [data-theme-preset]:not([data-theme-preset="default"]) .shadow-sm {
+    box-shadow: var(--shadow-sm);
+  }
+
+  [data-theme-preset]:not([data-theme-preset="default"]) .shadow {
+    box-shadow: var(--shadow);
+  }
+
+  [data-theme-preset]:not([data-theme-preset="default"]) .shadow-md {
+    box-shadow: var(--shadow-md);
+  }
+
+  [data-theme-preset]:not([data-theme-preset="default"]) .shadow-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  [data-theme-preset]:not([data-theme-preset="default"]) .shadow-xl {
+    box-shadow: var(--shadow-xl);
+  }
+
+  [data-theme-preset]:not([data-theme-preset="default"]) .shadow-2xl {
+    box-shadow: var(--shadow-2xl);
+  }
+}
+
+.disable-transitions * {
+  transition: none !important;
 }

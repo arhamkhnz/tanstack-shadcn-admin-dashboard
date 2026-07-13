@@ -1,6 +1,7 @@
 {
-  "short_name": "TanStack App",
-  "name": "Create TanStack App Sample",
+  "short_name": "Studio Admin",
+  "name": "Studio Admin - TanStack Start Dashboard",
+  "description": "A modern, customizable admin dashboard template built with TanStack Start and shadcn/ui.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -18,7 +19,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
