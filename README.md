@@ -41,7 +41,7 @@ Most admin templates I found, free or paid, felt cluttered, outdated, or too rig
 - **Validation**: Zod  
 - **Forms & State Management**: React Hook Form, Zustand  
 - **Tables & Data Handling**: TanStack Table  
-- **Tooling & DX**: Vite, Nitro, Biome  
+- **Tooling & DX**: Vite, Nitro, Biome, Husky  
 
 ## Screens
 
