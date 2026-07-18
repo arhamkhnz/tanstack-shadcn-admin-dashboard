@@ -10,6 +10,8 @@ Most admin templates I found, free or paid, felt cluttered, outdated, or too rig
 > Looking for the Next.js version? Check out [arhamkhnz/next-shadcn-admin-dashboard](https://github.com/arhamkhnz/next-shadcn-admin-dashboard).
 >
 > Looking for the Next.js Base UI version? Check out [arhamkhnz/next-shadcn-admin-dashboard-baseui](https://github.com/arhamkhnz/next-shadcn-admin-dashboard-baseui).
+>
+> Looking for the Next.js React Aria version? Check out [arhamkhnz/next-shadcn-admin-dashboard-aria](https://github.com/arhamkhnz/next-shadcn-admin-dashboard-aria).
 
 > [!TIP]
 > I’m also working on Nuxt.js and Svelte versions of this dashboard. They’ll be live soon.
