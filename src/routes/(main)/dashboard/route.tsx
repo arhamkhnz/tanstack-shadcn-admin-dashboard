@@ -2,16 +2,13 @@ import type { CSSProperties } from "react";
 
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 
-import { siGithub } from "simple-icons";
-
-import { SimpleIcon } from "@/components/simple-icon";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { users } from "@/data/users";
 import { cn } from "@/lib/utils";
 import { getDashboardLayout } from "@/server/server-actions";
 
+import { GitHubRepositoriesMenu } from "./-components/github-repositories-menu";
 import { AccountSwitcher } from "./-components/sidebar/account-switcher";
 import { AppSidebar } from "./-components/sidebar/app-sidebar";
 import { LayoutControls } from "./-components/sidebar/layout-controls";
@@ -65,20 +62,7 @@ function DashboardLayout() {
             <div className="flex items-center gap-2">
               <LayoutControls />
               <ThemeSwitcher />
-              <Button
-                size="icon"
-                nativeButton={false}
-                render={
-                  <a
-                    href="https://github.com/arhamkhnz/tanstack-shadcn-admin-dashboard"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Open GitHub repository"
-                  />
-                }
-              >
-                <SimpleIcon icon={siGithub} className="fill-primary-foreground" />
-              </Button>
+              <GitHubRepositoriesMenu />
               <AccountSwitcher users={users} />
             </div>
           </div>
