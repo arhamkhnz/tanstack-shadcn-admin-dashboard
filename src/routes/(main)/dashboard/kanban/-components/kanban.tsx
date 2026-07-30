@@ -3,6 +3,7 @@ import * as React from "react";
 import {
   closestCorners,
   DndContext,
+  type DragCancelEvent,
   type DragEndEvent,
   type DragOverEvent,
   DragOverlay,
@@ -59,7 +60,7 @@ export function Kanban({ initialBoard }: KanbanProps) {
   const [columnOrder, setColumnOrder] = React.useState<ColumnId[]>(columnIds);
   const [activeTask, setActiveTask] = React.useState<Task | null>(null);
   const [activeColumnId, setActiveColumnId] = React.useState<ColumnId | null>(null);
-  const boardBeforeDrag = React.useRef<BoardState | null>(null);
+  const boardBeforeDrag = React.useRef<BoardState>(initialBoard);
   const orderedColumns = columnOrder.flatMap((columnId) => columns.find((column) => column.id === columnId) ?? []);
 
   const sensors = useSensors(
@@ -77,11 +78,10 @@ export function Kanban({ initialBoard }: KanbanProps) {
     setActiveColumnId(findColumnId(board, String(event.active.id)) ?? null);
   }
 
-  function handleDragCancel() {
-    if (boardBeforeDrag.current) {
+  function handleDragCancel(event: DragCancelEvent) {
+    if (event.active.data.current?.type !== "column") {
       setBoard(boardBeforeDrag.current);
     }
-    boardBeforeDrag.current = null;
     setActiveTask(null);
     setActiveColumnId(null);
   }
@@ -123,7 +123,6 @@ export function Kanban({ initialBoard }: KanbanProps) {
     const { active, over } = event;
     const activeType = active.data.current?.type;
     const snapshot = boardBeforeDrag.current;
-    boardBeforeDrag.current = null;
     setActiveTask(null);
     setActiveColumnId(null);
 
@@ -144,7 +143,7 @@ export function Kanban({ initialBoard }: KanbanProps) {
     }
 
     if (!over) {
-      if (snapshot) setBoard(snapshot);
+      setBoard(snapshot);
       return;
     }
 
