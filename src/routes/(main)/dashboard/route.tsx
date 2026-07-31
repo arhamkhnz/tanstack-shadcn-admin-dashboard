@@ -8,12 +8,12 @@ import { users } from "@/data/users";
 import { cn } from "@/lib/utils";
 import { getDashboardLayout } from "@/server/server-actions";
 
-import { GitHubRepositoriesMenu } from "./-components/github-repositories-menu";
-import { AccountSwitcher } from "./-components/sidebar/account-switcher";
+import { AccountSwitcher } from "./-components/header/account-switcher";
+import { GitHubRepositoriesMenu } from "./-components/header/github-repositories-menu";
+import { LayoutControls } from "./-components/header/layout-controls";
+import { SearchDialog } from "./-components/header/search-dialog";
+import { ThemeSwitcher } from "./-components/header/theme-switcher";
 import { AppSidebar } from "./-components/sidebar/app-sidebar";
-import { LayoutControls } from "./-components/sidebar/layout-controls";
-import { SearchDialog } from "./-components/sidebar/search-dialog";
-import { ThemeSwitcher } from "./-components/sidebar/theme-switcher";
 
 export const Route = createFileRoute("/(main)/dashboard")({
   loader: () => getDashboardLayout(),
