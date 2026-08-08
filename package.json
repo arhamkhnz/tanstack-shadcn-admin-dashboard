@@ -18,7 +18,9 @@
     "generate:presets": "ts-node -P tsconfig.scripts.json src/scripts/generate-theme-presets.ts"
   },
   "lint-staged": {
-    "*.{js,ts,jsx,tsx}": ["biome check --write --no-errors-on-unmatched"]
+    "*.{js,ts,jsx,tsx}": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -34,7 +36,7 @@
     "@tanstack/react-router-devtools": "^1.167.1",
     "@tanstack/react-router-ssr-query": "^1.167.1",
     "@tanstack/react-start": "^1.168.40",
-    "@tanstack/react-table": "^9.1.0",
+    "@tanstack/react-table": "^9.1.1",
     "@tanstack/router-plugin": "^1.132.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -50,7 +52,7 @@
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.85.0",
     "react-resizable-panels": "^4.12.2",
-    "recharts": "^3.8.0",
+    "recharts": "^3.10.1",
     "shadcn": "^4.16.2",
     "simple-icons": "^16.28.0",
     "sonner": "^2.0.7",
