@@ -1,4 +1,5 @@
 import type { Column, ColumnDef } from "@tanstack/react-table";
+import { Subscribe } from "@tanstack/react-table";
 
 import { ArrowDown, ArrowUp, ArrowUpDown, MoreHorizontal, RotateCcw } from "lucide-react";
 
@@ -18,6 +19,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import type { DataTableFeatures } from "@/lib/data-table-features";
 import { cn } from "@/lib/utils";
 
 import { labels, priorities, statuses, type Task } from "./data";
@@ -42,7 +44,7 @@ function SortIcon({ sortDirection }: { sortDirection: false | "asc" | "desc" }) 
   return <ArrowUpDown data-icon="inline-end" />;
 }
 
-function TitleColumnHeader({ column }: { column: Column<Task, unknown> }) {
+function TitleColumnHeader({ column }: { column: Column<DataTableFeatures, Task, unknown> }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -70,25 +72,33 @@ function TitleColumnHeader({ column }: { column: Column<Task, unknown> }) {
   );
 }
 
-export const columns: ColumnDef<Task>[] = [
+export const columns: ColumnDef<DataTableFeatures, Task>[] = [
   {
     id: "select",
     header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllPageRowsSelected()}
-        indeterminate={table.getIsSomePageRowsSelected() && !table.getIsAllPageRowsSelected()}
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-        className="translate-y-0.5"
-      />
+      <Subscribe source={table.atoms.rowSelection}>
+        {() => (
+          <Checkbox
+            checked={table.getIsAllPageRowsSelected()}
+            indeterminate={!table.getIsAllPageRowsSelected() && table.getIsSomePageRowsSelected()}
+            onCheckedChange={(value) => table.toggleAllPageRowsSelected(value)}
+            aria-label="Select all"
+            className="translate-y-0.5"
+          />
+        )}
+      </Subscribe>
     ),
     cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-        className="translate-y-0.5"
-      />
+      <Subscribe source={row.table.atoms.rowSelection} selector={(selection) => Boolean(selection?.[row.id])}>
+        {(checked) => (
+          <Checkbox
+            checked={checked}
+            onCheckedChange={(value) => row.toggleSelected(value)}
+            aria-label="Select row"
+            className="translate-y-0.5"
+          />
+        )}
+      </Subscribe>
     ),
     enableSorting: false,
     enableHiding: false,
