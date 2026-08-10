@@ -1,3 +1,5 @@
+
+
 # TanStack Start Admin Template with TypeScript & Shadcn UI
 
 **Studio Admin** - Includes multiple dashboards, authentication layouts, customizable theme presets, and more.
@@ -6,7 +8,7 @@
 
 Most admin templates I found, free or paid, felt cluttered, outdated, or too rigid. I built this as a cleaner alternative with features often missing in others, such as theme toggling and layout controls, while keeping the design modern, minimal, and flexible.
 
-> **View demo:** [studio admin](https://next-shadcn-admin-dashboard.vercel.app)
+> **View demo:** [studio admin](https://tanstack-shadcn-admin-dashboard.vercel.app)
 
 > [!NOTE]
 > Looking for the Next.js version? Check out [arhamkhnz/next-shadcn-admin-dashboard](https://github.com/arhamkhnz/next-shadcn-admin-dashboard).
