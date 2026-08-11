@@ -62,7 +62,7 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.7",
+    "@biomejs/biome": "^2.5.8",
     "@tanstack/devtools-vite": "^0.8.3",
     "@tanstack/router-cli": "^1.167.27",
     "@types/d3-geo": "^3.1.1",
