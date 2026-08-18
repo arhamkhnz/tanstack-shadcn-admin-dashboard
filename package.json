@@ -26,7 +26,7 @@
     "@dnd-kit/helpers": "^0.5.0",
     "@dnd-kit/react": "^0.5.0",
     "@fullcalendar/react": "^7.0.2",
-    "@hookform/resolvers": "^5.9.0",
+    "@hookform/resolvers": "^5.9.1",
     "@shadcn/react": "^0.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/react-devtools": "^0.10.10",
@@ -62,7 +62,7 @@
     "zustand": "^5.0.15"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.8",
+    "@biomejs/biome": "^2.5.9",
     "@tanstack/devtools-vite": "^0.8.3",
     "@tanstack/router-cli": "^1.167.30",
     "@types/d3-geo": "^3.1.1",
