@@ -29,7 +29,7 @@
     "@hookform/resolvers": "^5.9.1",
     "@shadcn/react": "^0.3.0",
     "@tailwindcss/vite": "^4.3.3",
-    "@tanstack/react-devtools": "^0.10.11",
+    "@tanstack/react-devtools": "^0.10.12",
     "@tanstack/react-router": "latest",
     "@tanstack/react-router-devtools": "^1.167.1",
     "@tanstack/react-router-ssr-query": "^1.167.1",
@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.9",
-    "@tanstack/devtools-vite": "^0.8.4",
+    "@tanstack/devtools-vite": "^0.8.5",
     "@tanstack/router-cli": "^1.167.32",
     "@types/d3-geo": "^3.1.1",
     "@types/node": "^22.20.1",
