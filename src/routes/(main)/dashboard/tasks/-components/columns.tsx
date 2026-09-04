@@ -1,6 +1,7 @@
 import type { Column, ColumnDef } from "@tanstack/react-table";
 import { Subscribe } from "@tanstack/react-table";
 
+import { cn } from "cn";
 import { ArrowDown, ArrowUp, ArrowUpDown, MoreHorizontal, RotateCcw } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -20,7 +21,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import type { DataTableFeatures } from "@/lib/data-table-features";
-import { cn } from "@/lib/utils";
 
 import { labels, priorities, statuses, type Task } from "./data";
 

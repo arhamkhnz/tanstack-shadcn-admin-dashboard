@@ -1,3 +1,4 @@
+import { cn } from "cn";
 import { Clock } from "lucide-react";
 import { Funnel, FunnelChart, LabelList } from "recharts";
 
@@ -5,7 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { ChartContainer } from "@/components/ui/chart";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
-import { cn, formatCurrency } from "@/lib/utils";
+import { formatCurrency } from "@/lib/utils";
 
 import { actionItems, regionSalesData, salesPipelineChartConfig, salesPipelineChartData } from "./crm.config";
 

@@ -2,10 +2,11 @@ import type { CSSProperties } from "react";
 
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 
+import { cn } from "cn";
+
 import { Separator } from "@/components/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { users } from "@/data/users";
-import { cn } from "@/lib/utils";
 import { getDashboardLayout } from "@/server/server-actions";
 
 import { AccountSwitcher } from "./-components/header/account-switcher";

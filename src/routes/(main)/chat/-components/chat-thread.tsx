@@ -1,3 +1,4 @@
+import { cn } from "cn";
 import {
   AlarmClock,
   ArrowLeft,
@@ -40,7 +41,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { cn, getInitials } from "@/lib/utils";
+import { getInitials } from "@/lib/utils";
 
 import { type Message as ChatMessage, type Contact, currentUser } from "./data";
 

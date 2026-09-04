@@ -1,6 +1,5 @@
 import { useSortable } from "@dnd-kit/react/sortable";
-
-import { cn } from "@/lib/utils";
+import { cn } from "cn";
 
 import { TaskCard } from "./task-card";
 import type { ColumnId, Task } from "./types";

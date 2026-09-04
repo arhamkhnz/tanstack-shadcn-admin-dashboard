@@ -1,5 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 
+import { cn } from "cn";
 import { ChevronRight, MailIcon, PlusCircleIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -24,7 +25,6 @@ import {
   SidebarMenuSubItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
 import type {
   AppPath,
   NavBadge,
