@@ -129,14 +129,12 @@ export const sidebarItems: NavGroup[] = [
         title: "File Manager",
         url: "/dashboard/file-manager",
         icon: FolderOpen,
-        badge: "new",
       },
       {
         id: "patient-monitoring",
         title: "Patient Monitoring",
         url: "/dashboard/patient-monitoring",
         icon: HeartPulse,
-        badge: "new",
       },
     ],
   },
@@ -185,7 +183,6 @@ export const sidebarItems: NavGroup[] = [
         title: "Profile",
         url: "/dashboard/profile",
         icon: UserRound,
-        badge: "new",
       },
       {
         id: "users",
