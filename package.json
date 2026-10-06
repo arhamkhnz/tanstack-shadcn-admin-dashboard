@@ -25,7 +25,7 @@
     "@dnd-kit/abstract": "^0.5.0",
     "@dnd-kit/helpers": "^0.5.0",
     "@dnd-kit/react": "^0.5.0",
-    "@fullcalendar/react": "^7.1.0",
+    "@fullcalendar/react": "^7.1.1",
     "@hookform/resolvers": "^5.9.1",
     "@shadcn/react": "^0.3.1",
     "@tailwindcss/vite": "^4.3.3",
@@ -51,7 +51,7 @@
     "react-hook-form": "^7.89.0",
     "react-resizable-panels": "^4.14.2",
     "recharts": "^3.8.0",
-    "shadcn": "^4.21.1",
+    "shadcn": "^4.21.2",
     "simple-icons": "^16.34.0",
     "tailwindcss": "^4.1.18",
     "temporal-polyfill": "^1.0.5",
@@ -69,11 +69,11 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@types/topojson-client": "^3.1.5",
-    "@vitejs/plugin-react": "^6.1.1",
+    "@vitejs/plugin-react": "^6.1.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^6.0.3",
-    "vite": "^8.3.2"
+    "vite": "^8.3.3"
   }
 }
