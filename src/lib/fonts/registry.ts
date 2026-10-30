@@ -90,6 +90,12 @@ export const fontRegistry = {
     fallback: "monospace",
     stylesheet: googleFont("JetBrains Mono"),
   },
+  geistSerif: {
+    label: "Geist Serif",
+    family: "Geist Serif",
+    fallback: "serif",
+    stylesheet: "/fonts/geist-serif/font.css",
+  },
   notoSerif: {
     label: "Noto Serif",
     family: "Noto Serif",
