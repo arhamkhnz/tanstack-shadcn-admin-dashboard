@@ -51,6 +51,23 @@ export const Route = createRootRoute({
         href: fontRegistry[PREFERENCE_DEFAULTS.font].stylesheet,
       },
       {
+        rel: "icon",
+        href: "/favicon.ico",
+        sizes: "16x16 32x32 48x48",
+      },
+      ...[16, 32, 48, 128, 192, 512].map((size) => ({
+        rel: "icon",
+        href: `/icons/icon-${size}.png`,
+        sizes: `${size}x${size}`,
+        type: "image/png",
+      })),
+      {
+        rel: "apple-touch-icon",
+        href: "/apple-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+      {
         rel: "manifest",
         href: "/manifest.json",
       },
