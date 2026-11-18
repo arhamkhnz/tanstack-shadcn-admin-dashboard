@@ -23,6 +23,7 @@ import { Route as mainDashboardCalendarRouteRouteImport } from './routes/(main)/
 import { Route as mainDashboardChatRouteRouteImport } from './routes/(main)/dashboard/chat/route'
 import { Route as mainDashboardComingSoonRouteRouteImport } from './routes/(main)/dashboard/coming-soon/route'
 import { Route as mainDashboardCrmRouteRouteImport } from './routes/(main)/dashboard/crm/route'
+import { Route as mainDashboardCryptoRouteRouteImport } from './routes/(main)/dashboard/crypto/route'
 import { Route as mainDashboardDefaultRouteRouteImport } from './routes/(main)/dashboard/default/route'
 import { Route as mainDashboardEcommerceRouteRouteImport } from './routes/(main)/dashboard/ecommerce/route'
 import { Route as mainDashboardFileManagerRouteRouteImport } from './routes/(main)/dashboard/file-manager/route'
@@ -122,6 +123,12 @@ const mainDashboardCrmRouteRoute = mainDashboardCrmRouteRouteImport.update({
   path: '/crm',
   getParentRoute: () => mainDashboardRouteRoute,
 } as any)
+const mainDashboardCryptoRouteRoute =
+  mainDashboardCryptoRouteRouteImport.update({
+    id: '/crypto',
+    path: '/crypto',
+    getParentRoute: () => mainDashboardRouteRoute,
+  } as any)
 const mainDashboardDefaultRouteRoute =
   mainDashboardDefaultRouteRouteImport.update({
     id: '/default',
@@ -272,6 +279,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/chat': typeof mainDashboardChatRouteRoute
   '/dashboard/coming-soon': typeof mainDashboardComingSoonRouteRoute
   '/dashboard/crm': typeof mainDashboardCrmRouteRoute
+  '/dashboard/crypto': typeof mainDashboardCryptoRouteRoute
   '/dashboard/default': typeof mainDashboardDefaultRouteRoute
   '/dashboard/ecommerce': typeof mainDashboardEcommerceRouteRoute
   '/dashboard/file-manager': typeof mainDashboardFileManagerRouteRoute
@@ -311,6 +319,7 @@ export interface FileRoutesByTo {
   '/dashboard/chat': typeof mainDashboardChatRouteRoute
   '/dashboard/coming-soon': typeof mainDashboardComingSoonRouteRoute
   '/dashboard/crm': typeof mainDashboardCrmRouteRoute
+  '/dashboard/crypto': typeof mainDashboardCryptoRouteRoute
   '/dashboard/default': typeof mainDashboardDefaultRouteRoute
   '/dashboard/ecommerce': typeof mainDashboardEcommerceRouteRoute
   '/dashboard/file-manager': typeof mainDashboardFileManagerRouteRoute
@@ -352,6 +361,7 @@ export interface FileRoutesById {
   '/(main)/dashboard/chat': typeof mainDashboardChatRouteRoute
   '/(main)/dashboard/coming-soon': typeof mainDashboardComingSoonRouteRoute
   '/(main)/dashboard/crm': typeof mainDashboardCrmRouteRoute
+  '/(main)/dashboard/crypto': typeof mainDashboardCryptoRouteRoute
   '/(main)/dashboard/default': typeof mainDashboardDefaultRouteRoute
   '/(main)/dashboard/ecommerce': typeof mainDashboardEcommerceRouteRoute
   '/(main)/dashboard/file-manager': typeof mainDashboardFileManagerRouteRoute
@@ -394,6 +404,7 @@ export interface FileRouteTypes {
     | '/dashboard/chat'
     | '/dashboard/coming-soon'
     | '/dashboard/crm'
+    | '/dashboard/crypto'
     | '/dashboard/default'
     | '/dashboard/ecommerce'
     | '/dashboard/file-manager'
@@ -433,6 +444,7 @@ export interface FileRouteTypes {
     | '/dashboard/chat'
     | '/dashboard/coming-soon'
     | '/dashboard/crm'
+    | '/dashboard/crypto'
     | '/dashboard/default'
     | '/dashboard/ecommerce'
     | '/dashboard/file-manager'
@@ -473,6 +485,7 @@ export interface FileRouteTypes {
     | '/(main)/dashboard/chat'
     | '/(main)/dashboard/coming-soon'
     | '/(main)/dashboard/crm'
+    | '/(main)/dashboard/crypto'
     | '/(main)/dashboard/default'
     | '/(main)/dashboard/ecommerce'
     | '/(main)/dashboard/file-manager'
@@ -610,6 +623,13 @@ declare module '@tanstack/react-router' {
       path: '/crm'
       fullPath: '/dashboard/crm'
       preLoaderRoute: typeof mainDashboardCrmRouteRouteImport
+      parentRoute: typeof mainDashboardRouteRoute
+    }
+    '/(main)/dashboard/crypto': {
+      id: '/(main)/dashboard/crypto'
+      path: '/crypto'
+      fullPath: '/dashboard/crypto'
+      preLoaderRoute: typeof mainDashboardCryptoRouteRouteImport
       parentRoute: typeof mainDashboardRouteRoute
     }
     '/(main)/dashboard/default': {
@@ -790,6 +810,7 @@ interface mainDashboardRouteRouteChildren {
   mainDashboardChatRouteRoute: typeof mainDashboardChatRouteRoute
   mainDashboardComingSoonRouteRoute: typeof mainDashboardComingSoonRouteRoute
   mainDashboardCrmRouteRoute: typeof mainDashboardCrmRouteRoute
+  mainDashboardCryptoRouteRoute: typeof mainDashboardCryptoRouteRoute
   mainDashboardDefaultRouteRoute: typeof mainDashboardDefaultRouteRoute
   mainDashboardEcommerceRouteRoute: typeof mainDashboardEcommerceRouteRoute
   mainDashboardFileManagerRouteRoute: typeof mainDashboardFileManagerRouteRoute
@@ -821,6 +842,7 @@ const mainDashboardRouteRouteChildren: mainDashboardRouteRouteChildren = {
   mainDashboardChatRouteRoute: mainDashboardChatRouteRoute,
   mainDashboardComingSoonRouteRoute: mainDashboardComingSoonRouteRoute,
   mainDashboardCrmRouteRoute: mainDashboardCrmRouteRoute,
+  mainDashboardCryptoRouteRoute: mainDashboardCryptoRouteRoute,
   mainDashboardDefaultRouteRoute: mainDashboardDefaultRouteRoute,
   mainDashboardEcommerceRouteRoute: mainDashboardEcommerceRouteRoute,
   mainDashboardFileManagerRouteRoute: mainDashboardFileManagerRouteRoute,
