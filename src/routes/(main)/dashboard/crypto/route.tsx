@@ -7,8 +7,9 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectVa
 
 import { AccountActivityTable } from "./-components/account-activity";
 import { displayCurrencies } from "./-components/data";
-import { MarketTrades } from "./-components/market-trades";
-import { OrderBook } from "./-components/order-book";
+import { ExchangeAllocation } from "./-components/exchange-allocation";
+import { ExchangeCard } from "./-components/exchange-card";
+import { MonthlyPnl } from "./-components/monthly-pnl";
 import { PortfolioHoldings } from "./-components/portfolio-holdings";
 import { PriceChart } from "./-components/price-chart";
 
@@ -50,13 +51,10 @@ function Page() {
       </div>
       <PortfolioHoldings />
       <PriceChart />
-      <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-12">
-        <div className="min-w-0 lg:col-span-8">
-          <OrderBook />
-        </div>
-        <div className="min-w-0 lg:col-span-4">
-          <MarketTrades />
-        </div>
+      <div className="grid grid-cols-1 items-stretch gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <ExchangeAllocation />
+        <ExchangeCard />
+        <MonthlyPnl />
       </div>
       <AccountActivityTable />
     </div>
