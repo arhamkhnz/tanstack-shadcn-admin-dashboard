@@ -28,6 +28,7 @@ import { Route as mainDashboardDefaultRouteRouteImport } from './routes/(main)/d
 import { Route as mainDashboardEcommerceRouteRouteImport } from './routes/(main)/dashboard/ecommerce/route'
 import { Route as mainDashboardFileManagerRouteRouteImport } from './routes/(main)/dashboard/file-manager/route'
 import { Route as mainDashboardFinanceRouteRouteImport } from './routes/(main)/dashboard/finance/route'
+import { Route as mainDashboardHrRouteRouteImport } from './routes/(main)/dashboard/hr/route'
 import { Route as mainDashboardInfrastructureRouteRouteImport } from './routes/(main)/dashboard/infrastructure/route'
 import { Route as mainDashboardInvoiceRouteRouteImport } from './routes/(main)/dashboard/invoice/route'
 import { Route as mainDashboardKanbanRouteRouteImport } from './routes/(main)/dashboard/kanban/route'
@@ -153,6 +154,11 @@ const mainDashboardFinanceRouteRoute =
     path: '/finance',
     getParentRoute: () => mainDashboardRouteRoute,
   } as any)
+const mainDashboardHrRouteRoute = mainDashboardHrRouteRouteImport.update({
+  id: '/hr',
+  path: '/hr',
+  getParentRoute: () => mainDashboardRouteRoute,
+} as any)
 const mainDashboardInfrastructureRouteRoute =
   mainDashboardInfrastructureRouteRouteImport.update({
     id: '/infrastructure',
@@ -284,6 +290,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/ecommerce': typeof mainDashboardEcommerceRouteRoute
   '/dashboard/file-manager': typeof mainDashboardFileManagerRouteRoute
   '/dashboard/finance': typeof mainDashboardFinanceRouteRoute
+  '/dashboard/hr': typeof mainDashboardHrRouteRoute
   '/dashboard/infrastructure': typeof mainDashboardInfrastructureRouteRoute
   '/dashboard/invoice': typeof mainDashboardInvoiceRouteRoute
   '/dashboard/kanban': typeof mainDashboardKanbanRouteRoute
@@ -324,6 +331,7 @@ export interface FileRoutesByTo {
   '/dashboard/ecommerce': typeof mainDashboardEcommerceRouteRoute
   '/dashboard/file-manager': typeof mainDashboardFileManagerRouteRoute
   '/dashboard/finance': typeof mainDashboardFinanceRouteRoute
+  '/dashboard/hr': typeof mainDashboardHrRouteRoute
   '/dashboard/infrastructure': typeof mainDashboardInfrastructureRouteRoute
   '/dashboard/invoice': typeof mainDashboardInvoiceRouteRoute
   '/dashboard/kanban': typeof mainDashboardKanbanRouteRoute
@@ -366,6 +374,7 @@ export interface FileRoutesById {
   '/(main)/dashboard/ecommerce': typeof mainDashboardEcommerceRouteRoute
   '/(main)/dashboard/file-manager': typeof mainDashboardFileManagerRouteRoute
   '/(main)/dashboard/finance': typeof mainDashboardFinanceRouteRoute
+  '/(main)/dashboard/hr': typeof mainDashboardHrRouteRoute
   '/(main)/dashboard/infrastructure': typeof mainDashboardInfrastructureRouteRoute
   '/(main)/dashboard/invoice': typeof mainDashboardInvoiceRouteRoute
   '/(main)/dashboard/kanban': typeof mainDashboardKanbanRouteRoute
@@ -409,6 +418,7 @@ export interface FileRouteTypes {
     | '/dashboard/ecommerce'
     | '/dashboard/file-manager'
     | '/dashboard/finance'
+    | '/dashboard/hr'
     | '/dashboard/infrastructure'
     | '/dashboard/invoice'
     | '/dashboard/kanban'
@@ -449,6 +459,7 @@ export interface FileRouteTypes {
     | '/dashboard/ecommerce'
     | '/dashboard/file-manager'
     | '/dashboard/finance'
+    | '/dashboard/hr'
     | '/dashboard/infrastructure'
     | '/dashboard/invoice'
     | '/dashboard/kanban'
@@ -490,6 +501,7 @@ export interface FileRouteTypes {
     | '/(main)/dashboard/ecommerce'
     | '/(main)/dashboard/file-manager'
     | '/(main)/dashboard/finance'
+    | '/(main)/dashboard/hr'
     | '/(main)/dashboard/infrastructure'
     | '/(main)/dashboard/invoice'
     | '/(main)/dashboard/kanban'
@@ -660,6 +672,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof mainDashboardFinanceRouteRouteImport
       parentRoute: typeof mainDashboardRouteRoute
     }
+    '/(main)/dashboard/hr': {
+      id: '/(main)/dashboard/hr'
+      path: '/hr'
+      fullPath: '/dashboard/hr'
+      preLoaderRoute: typeof mainDashboardHrRouteRouteImport
+      parentRoute: typeof mainDashboardRouteRoute
+    }
     '/(main)/dashboard/infrastructure': {
       id: '/(main)/dashboard/infrastructure'
       path: '/infrastructure'
@@ -815,6 +834,7 @@ interface mainDashboardRouteRouteChildren {
   mainDashboardEcommerceRouteRoute: typeof mainDashboardEcommerceRouteRoute
   mainDashboardFileManagerRouteRoute: typeof mainDashboardFileManagerRouteRoute
   mainDashboardFinanceRouteRoute: typeof mainDashboardFinanceRouteRoute
+  mainDashboardHrRouteRoute: typeof mainDashboardHrRouteRoute
   mainDashboardInfrastructureRouteRoute: typeof mainDashboardInfrastructureRouteRoute
   mainDashboardInvoiceRouteRoute: typeof mainDashboardInvoiceRouteRoute
   mainDashboardKanbanRouteRoute: typeof mainDashboardKanbanRouteRoute
@@ -847,6 +867,7 @@ const mainDashboardRouteRouteChildren: mainDashboardRouteRouteChildren = {
   mainDashboardEcommerceRouteRoute: mainDashboardEcommerceRouteRoute,
   mainDashboardFileManagerRouteRoute: mainDashboardFileManagerRouteRoute,
   mainDashboardFinanceRouteRoute: mainDashboardFinanceRouteRoute,
+  mainDashboardHrRouteRoute: mainDashboardHrRouteRoute,
   mainDashboardInfrastructureRouteRoute: mainDashboardInfrastructureRouteRoute,
   mainDashboardInvoiceRouteRoute: mainDashboardInvoiceRouteRoute,
   mainDashboardKanbanRouteRoute: mainDashboardKanbanRouteRoute,
